@@ -89,12 +89,10 @@
     Would you please forgive your baby? 😣😣
   </p>
 
-  <!-- AUDIO PLAYER WITH HOSTED FILE -->
-  <audio id="bgAudio" controls preload="auto" style="margin-top: 20px;">
+  <!-- HIDDEN AUDIO -->
+  <audio id="bgAudio" preload="auto" style="display:none;">
     <source src="/mnt/data/song.mp3" type="audio/mpeg">
   </audio>
-
-  <br>
 
   <button id="forgiveBtn">Movie Dekhne Chale?</button>
 
@@ -103,6 +101,29 @@
   </div>
 
   <script>
+    const audio = document.getElementById("bgAudio");
+    let played = false;
+
+    // Try autoplay immediately
+    audio.play().catch(() => {});
+
+    // Guaranteed autoplay on ANY touch or click
+    function startMusic() {
+      if (!played) {
+        audio.play().catch(() => {});
+        played = true;
+      }
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+
+    document.getElementById("forgiveBtn").onclick = function () {
+      document.getElementById("afterMsg").style.display = "block";
+      startMusic();
+    }
+
+    // Falling hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -114,17 +135,6 @@
     }
 
     setInterval(createHeart, 300);
-
-    const audio = document.getElementById("bgAudio");
-
-    document.getElementById("forgiveBtn").onclick = function () {
-      document.getElementById("afterMsg").style.display = "block";
-
-      // Play audio on button click
-      audio.play().catch(err => {
-        console.log("Autoplay blocked, user must press play.", err);
-      });
-    }
   </script>
 
 </body>
