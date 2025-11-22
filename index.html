@@ -89,7 +89,7 @@
     Would you please forgive your baby? 😣😣
   </p>
 
-  <!-- HIDDEN AUTOPLAY AUDIO -->
+  <!-- HIDDEN AUTOPLAY AUDIO USING YOUR FILE -->
   <audio id="bgAudio" preload="auto" style="display:none;">
     <source src="/mnt/data/song.mp3" type="audio/mpeg">
   </audio>
@@ -116,10 +116,10 @@
     const audio = document.getElementById("bgAudio");
     let hasPlayed = false;
 
-    // Try autoplay immediately
+    // Try autoplay instantly (works on some browsers)
     audio.play().catch(() => {});
 
-    // Guaranteed autoplay after first click or touch
+    // Guaranteed autoplay after any tap/click
     function enableAutoPlay() {
       if (!hasPlayed) {
         audio.play().catch(() => {});
@@ -138,3 +138,4 @@
 
 </body>
 </html>
+
