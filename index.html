@@ -89,12 +89,10 @@
     Would you please forgive your baby? 😣😣
   </p>
 
-  <!-- AUDIO PLAYER WITH HOSTED FILE -->
-  <audio id="bgAudio" controls preload="auto" style="margin-top: 20px;">
+  <!-- HIDDEN AUTOPLAY AUDIO -->
+  <audio id="bgAudio" preload="auto" style="display:none;">
     <source src="/mnt/data/song.mp3" type="audio/mpeg">
   </audio>
-
-  <br>
 
   <button id="forgiveBtn">Movie Dekhne Chale?</button>
 
@@ -116,14 +114,25 @@
     setInterval(createHeart, 300);
 
     const audio = document.getElementById("bgAudio");
+    let hasPlayed = false;
+
+    // Try autoplay immediately
+    audio.play().catch(() => {});
+
+    // Guaranteed autoplay after first click or touch
+    function enableAutoPlay() {
+      if (!hasPlayed) {
+        audio.play().catch(() => {});
+        hasPlayed = true;
+      }
+    }
+
+    document.addEventListener("click", enableAutoPlay);
+    document.addEventListener("touchstart", enableAutoPlay);
 
     document.getElementById("forgiveBtn").onclick = function () {
       document.getElementById("afterMsg").style.display = "block";
-
-      // Play audio on button click
-      audio.play().catch(err => {
-        console.log("Autoplay blocked, user must press play.", err);
-      });
+      enableAutoPlay();
     }
   </script>
 
