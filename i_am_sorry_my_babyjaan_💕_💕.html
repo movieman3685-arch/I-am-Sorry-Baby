@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Sorry, My Sweet Lil Baby Racoon 😭😭😘😘</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe6ea;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 3rem;
+      color: #d4004e;
+      animation: fadeIn 1.5s ease;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #444;
+      width: 80%;
+      margin: 20px auto;
+      animation: fadeIn 2s ease;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      animation: fall 4s linear infinite;
+      color: #ff3163;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
+      100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #forgiveBtn {
+      margin-top: 30px;
+      padding: 15px 35px;
+      background: #ff3163;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #forgiveBtn:hover {
+      background: #d4004e;
+      transform: scale(1.1);
+    }
+
+    #afterMsg {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      color: #d4004e;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I'm Sorry, My Angel 💕💕</h1>
+  <p>Hi Sweetheart. I am soooo soooo sorry, your baby is very sad that he made you sad.<br>
+    My sweet lil angel, my princess, my sweetheart 😘😘<br>
+    Amar shona mona baby racoonta😘😘😘😘 <br>
+    Aamar cuhcu muchu babyta😘😘 <br> 
+    Aamar shonata😘😘<br>
+    Amar manata😘😘<br>
+    I love you the most, I really do.<br>
+    Would you please Forgive your baby?😣😣</p>
+
+  <button id="forgiveBtn">Movie Dekhne Chale?</button>
+  <div id="afterMsg">Thank you, my Princess. I won’t disappoint you again.I love you the Most Sweetheart😘😘</div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "😘😘";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    setInterval(createHeart, 300);
+
+    document.getElementById("forgiveBtn").onclick = function () {
+      document.getElementById("afterMsg").style.display = "block";
+    }
+  </script>
+
+  <audio autoplay loop>
+    <source src="/mnt/data/Alisha_Chinai_Atif_Aslam_Pritam_-_Tera_Hone_Laga_Hoon_From_Ajab_Prem_Ki_Ghazab_Kahani_(mp3.pm).mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>
