@@ -73,6 +73,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>I'm Sorry, My Angel 💕💕</h1>
@@ -88,10 +89,9 @@
     Would you please forgive your baby? 😣😣
   </p>
 
-  <!-- Audio Player -->
+  <!-- AUDIO PLAYER WITH HOSTED FILE -->
   <audio id="bgAudio" controls preload="auto" style="margin-top: 20px;">
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="/mnt/data/song.mp3" type="audio/mpeg">
   </audio>
 
   <br>
@@ -120,9 +120,9 @@
     document.getElementById("forgiveBtn").onclick = function () {
       document.getElementById("afterMsg").style.display = "block";
 
-      // Try to play audio on button click (autoplay workaround)
+      // Play audio on button click
       audio.play().catch(err => {
-        console.log("Autoplay blocked — user must press play manually.", err);
+        console.log("Autoplay blocked, user must press play.", err);
       });
     }
   </script>
