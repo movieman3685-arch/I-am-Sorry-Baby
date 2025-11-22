@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I'm Sorry, My Sweet Lil Baby Racoon 😭😭😘😘</title>
+
   <style>
     body {
       margin: 0;
@@ -75,17 +76,31 @@
 <body>
 
   <h1>I'm Sorry, My Angel 💕💕</h1>
-  <p>Hi Sweetheart. I am soooo soooo sorry, your baby is very sad that he made you sad.<br>
+
+  <p>
+    Hi Sweetheart. I am soooo soooo sorry, your baby is very sad that he made you sad.<br>
     My sweet lil angel, my princess, my sweetheart 😘😘<br>
-    Amar shona mona baby racoonta😘😘😘😘 <br>
-    Aamar cuhcu muchu babyta😘😘 <br> 
-    Aamar shonata😘😘<br>
-    Amar manata😘😘<br>
+    Amar shona mona baby racoonta 😘😘😘😘<br>
+    Aamar cuhcu muchu babyta 😘😘<br>
+    Aamar shonata 😘😘<br>
+    Amar manata 😘😘<br>
     I love you the most, I really do.<br>
-    Would you please Forgive your baby?😣😣</p>
+    Would you please forgive your baby? 😣😣
+  </p>
+
+  <!-- Audio Player -->
+  <audio id="bgAudio" controls preload="auto" style="margin-top: 20px;">
+    <source src="Alisha_Chinai_Atif_Aslam_Pritam_-_Tera_Hone_Laga_Hoon_From_Ajab_Prem_Ki_Ghazab_Kahani_(mp3.pm).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <br>
 
   <button id="forgiveBtn">Movie Dekhne Chale?</button>
-  <div id="afterMsg">Thank you, my Princess. I won’t disappoint you again.I love you the Most Sweetheart😘😘</div>
+
+  <div id="afterMsg">
+    Thank you, my Princess. I won’t disappoint you again. I love you the most, Sweetheart 😘😘
+  </div>
 
   <script>
     function createHeart() {
@@ -95,20 +110,22 @@
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 4000);
     }
 
     setInterval(createHeart, 300);
 
+    const audio = document.getElementById("bgAudio");
+
     document.getElementById("forgiveBtn").onclick = function () {
       document.getElementById("afterMsg").style.display = "block";
+
+      // Try to play audio on button click (autoplay workaround)
+      audio.play().catch(err => {
+        console.log("Autoplay blocked — user must press play manually.", err);
+      });
     }
   </script>
-
-  <audio autoplay loop>
-    <source src="/mnt/data/Alisha_Chinai_Atif_Aslam_Pritam_-_Tera_Hone_Laga_Hoon_From_Ajab_Prem_Ki_Ghazab_Kahani_(mp3.pm).mp3" type="audio/mpeg">
-  </audio>
 
 </body>
 </html>
